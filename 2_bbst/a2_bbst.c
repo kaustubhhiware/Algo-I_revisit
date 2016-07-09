@@ -90,7 +90,7 @@ BST left_rotate(BST root)
 	node *p,*right_s_left,*right;
 	p = root;
 	right = root->r;
-	if(right!=NULL)
+	if(right!=NULL||right->l!=NULL)
 	{
 		right_s_left = right->l;
 		p->r = right_s_left;
@@ -106,7 +106,7 @@ BST right_rotate(BST root)
 	node *p,*left_s_right,*left;
 	p = root;
 	left = root->l;
-	if(left!=NULL)
+	if(left!=NULL||left->r!=NULL)
 	{
 		left_s_right = left->r;
 		p->l = left_s_right;
@@ -205,7 +205,7 @@ BST rebalance(BST root)
 		n_dup /= 2;
 		root = alter_rotor(root,n_dup);
 	}
-	printf("pow2 = %d\n",pow2);
+	//printf("pow2 = %d\n",pow2);
 	return root;
 }
 
